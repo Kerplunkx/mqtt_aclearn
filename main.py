@@ -2,12 +2,16 @@ from paho.mqtt import client as mqtt_client
 from mongo_conf import get_total_votes
 from influx_conf import count_people
 from time import sleep
+from dotenv import load_dotenv
+from os import getenv
 
-BROKER = 'BROKER'
-PORT = 1883
-BASE_TOPIC = 'aclearn/'
-USERNAME = 'USERNAME'
-PASSWORD = 'PASSWORD'
+load_dotenv()
+
+BROKER = getenv("MQTT_BROKER")
+PORT = int(getenv("MQTT_PORT"))
+BASE_TOPIC = getenv("MQTT_BASE_TOPIC")
+USERNAME = getenv("MQTT_USER")
+PASSWORD = getenv("MQTT_PASS")
 
 
 def connect_mqtt() -> mqtt_client:

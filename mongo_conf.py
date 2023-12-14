@@ -1,7 +1,11 @@
 from pymongo import MongoClient
 from datetime import datetime
+from dotenv import load_dotenv
+from os import getenv
 
-client = MongoClient('URL')
+load_dotenv()
+
+client = MongoClient(getenv("MONGO_URL"))
 db = client.admin
 collection = db.comfort_votacion
 
