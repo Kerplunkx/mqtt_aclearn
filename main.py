@@ -21,7 +21,7 @@ def connect_mqtt() -> mqtt_client:
         else:
             print('La conexion al Broker ha fallado')
 
-    client = mqtt_client.Client("mqtt_aclearn_id")
+    client = mqtt_client.Client("ocupancia_votos_id")
     client.username_pw_set(USERNAME, PASSWORD)
     client.on_connect = on_connect
     client.connect(BROKER, PORT)
